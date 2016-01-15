@@ -2,6 +2,7 @@
 
 var LocalStorage = require('./lib/local');
 var CloudinaryStorage = require('./lib/cloudinary');
+var AmazonStorage = require('./lib/amazon');
 
 var MediaStorage = function () {
     this.storage = null;
@@ -23,6 +24,10 @@ MediaStorage.prototype.init = function (type, options) {
 
         case 'cloudinary':
             this.storage = new CloudinaryStorage(options);
+            break;
+
+        case 'amazon':
+            this.storage = new AmazonStorage(options);
             break;
 
         default:
